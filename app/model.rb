@@ -7,6 +7,7 @@ def main
     host = db_parts[5]
     db = db_parts[7]
     conn = PGconn.open(:host =>  host, :dbname => db, :user=> username, :password=> password)
+    conn.exec("CREATE TABLE users (id serial NOT NULL, name character varying(255), CONSTRAINT users_pkey PRIMARY KEY (id)) WITH (OIDS=FALSE);");
 end
 
 main
