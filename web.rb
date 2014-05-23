@@ -1,5 +1,6 @@
 require 'sinatra'
+require 'pg'
 
 get '/' do
-  "Hello, world"
+	conn = PG::Connection.open(:dbname => ENV['DATABASE_URL'])
 end
