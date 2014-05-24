@@ -14,4 +14,5 @@ post '/ask' do
 		return "Witaj w mega nielegalnym sklepie"
 	else
 		return "Wogóle nie mam pojęcia kim jesteś"
+	end
 end
