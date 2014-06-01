@@ -1,1 +1,3 @@
-web: bundle exec ruby web.rb -p $PORT
+web: bundle exec rackup config.ru -p $PORT
+console: bundle exec irb -r ./web.rb
+

@@ -54,6 +54,13 @@ class PostgresConnector
 			user_id integer NOT NULL references users ON DELETE CASCADE,
 		 	order_id integer NOT NULL references orders ON DELETE CASCADE,
 		 	payment_id integer NOT NULL references payment ON DELETE CASCADE
+		);
+
+		DROP TABLE IF EXISTS query CASCADE;
+		CREATE TABLE query (
+			id_query serial PRIMARY KEY,
+			query_text text NOT NULL,
+			date timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 		);");
 	end
 

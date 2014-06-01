@@ -1,18 +1,25 @@
 require 'sinatra'
 require './app/model'
 
-get '/' do
-	erb :index
-end
+class Protected < Sinatra::Base
 
-get '/admin' do
-	createModel
-end
+	use Rack::Auth::Basic, "Protected Area" do |username, password|
+	  username == 'admin' && password == 'test'
+	end
+	
+	get '/' do
+		erb :index
+	end
 
-post '/ask' do
-	if params[:query] == 'login = torianin'
-		return "Witaj w mega nielegalnym sklepie"
-	else
-		return "Wogóle nie mam pojęcia kim jesteś"
+	get '/admin' do
+		createModel
+	end
+
+	post '/ask' do
+		if params[:query] == 'login = torianin'
+			return "Witaj w mega nielegalnym sklepie"
+		else
+			return "Wogóle nie mam pojęcia kim jesteś"
+		end
 	end
 end
