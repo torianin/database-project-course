@@ -1,12 +1,13 @@
 require 'sinatra'
 require './app/model'
+require './app/string.rb'
 
 class Protected < Sinatra::Base
 
 	use Rack::Auth::Basic, "Protected Area" do |username, password|
 	  username == 'admin' && password == 'test'
 	end
-	
+
 	get '/' do
 		erb :index
 	end
@@ -16,10 +17,10 @@ class Protected < Sinatra::Base
 	end
 
 	post '/ask' do
-		if params[:query] == 'login = torianin'
-			return "Witaj w mega nielegalnym sklepie"
+		if params[:query] == 'pomoc'
+			return $pomoc
 		else
-			return "Wogóle nie mam pojęcia kim jesteś"
+			return "Chyba coś poszło nie tak"
 		end
 	end
 end
