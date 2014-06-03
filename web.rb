@@ -26,7 +26,7 @@ class Protected < Sinatra::Base
 	post '/ask' do
 		if params[:query] == 'pomoc'
 			return $pomoc
-		else if params[:query][0..7] == 'produkty' 
+		elsif params[:query][0..7] == 'produkty' 
 			return printProducts
 		else
 			return "Chyba coś poszło nie tak"

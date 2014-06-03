@@ -1,7 +1,6 @@
 require 'pg'
 
 class PostgresConnector
-	include Singleton
 	def connect 
 	    db_parts = ENV['DATABASE_URL'].split(/\/|:|@/)
 	    username = db_parts[3]
