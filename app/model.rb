@@ -1,6 +1,7 @@
 require 'pg'
 
 class PostgresConnector
+	include Singleton
 	def connect 
 	    db_parts = ENV['DATABASE_URL'].split(/\/|:|@/)
 	    username = db_parts[3]
@@ -64,11 +65,28 @@ class PostgresConnector
 		);");
 	end
 
+	#Gets products
+	def getProducts
+		@conn.exec( "SELECT * FROM products" ) do |result|
+      result.each do |row|
+        yield row if block_given?
+			end
+    end
+	end
+
 	def disconnect
     	@conn.close
   	end
 end
 
+def printProducts
+	p = PostgresConnector.new()
+	p.connect
+	value
+	p.getProducts{|row| value = value + row['id'] + " " + row['name']}
+	p.disconnect
+	value
+end
 
 def createModel
 	p = PostgresConnector.new()

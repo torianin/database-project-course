@@ -1,11 +1,18 @@
 require 'sinatra'
 require './app/model'
 require './app/string.rb'
+require 'bcrypt'
 
 class Protected < Sinatra::Base
+	enable :sessions
+
+	helpers do
+
+	end
 
 	use Rack::Auth::Basic, "Protected Area" do |username, password|
 	  username == 'admin' && password == 'test'
+		
 	end
 
 	get '/' do
@@ -19,6 +26,8 @@ class Protected < Sinatra::Base
 	post '/ask' do
 		if params[:query] == 'pomoc'
 			return $pomoc
+		else if params[:query][0..7] == 'produkty' 
+			return printProducts
 		else
 			return "Chyba coś poszło nie tak"
 		end
