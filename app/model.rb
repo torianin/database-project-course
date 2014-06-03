@@ -81,7 +81,7 @@ end
 def printProducts
 	p = PostgresConnector.new()
 	p.connect
-	value
+	value = ""
 	p.getProducts{|row| value = value + row['id'] + " " + row['name']}
 	p.disconnect
 	value
