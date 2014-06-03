@@ -27,7 +27,7 @@ class Protected < Sinatra::Base
 		if params[:query] == 'pomoc'
 			return $pomoc
 		elsif params[:query][0..7] == 'produkty' 
-			return printProducts
+			return "Działa"
 		else
 			return "Chyba coś poszło nie tak"
 		end
