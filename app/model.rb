@@ -2,7 +2,7 @@ require 'pg'
 require 'singleton'
 
 class PostgresConnector
-	
+  include Singleton
 	def initialize()
 	    db_parts = ENV['DATABASE_URL'].split(/\/|:|@/)
 	    username = db_parts[3]
