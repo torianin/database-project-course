@@ -6,7 +6,7 @@ class PostgresConnector
 
 	public
 	
-	def initialize 
+	def initialize()
 	    db_parts = ENV['DATABASE_URL'].split(/\/|:|@/)
 	    username = db_parts[3]
 	    password = db_parts[4]
@@ -88,6 +88,6 @@ class PostgresConnector
 end
 
 def createModel
-	p = PostgresConnector.new
+	p = PostgresConnector.new()
 	p.createTables
 end
