@@ -24,7 +24,8 @@ class Protected < Sinatra::Base
 	end
 
 	post '/ask' do
-		return parseString(params[:query])
+		if
+			return parseString(params[:query])
 		elsif params[:query][0..7] == 'produkty' 
 			return printProducts
 		else
