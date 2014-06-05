@@ -87,7 +87,5 @@ end
 
 def createModel
 	p = PostgresConnector.new()
-	p.connect
 	p.createTables
-	p.disconnect
 end
