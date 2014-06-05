@@ -6,7 +6,7 @@ def parseString(message)
 		when "p" then
 			return $pomoc
 		when "w" then 
-			return "penis"
+			return printProducts
 		when "d" then
 			return
 		when "e" then
