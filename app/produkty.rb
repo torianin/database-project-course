@@ -2,9 +2,9 @@ require './app/model'
 
 def category(category)
 	case category
-	  when 0 then return "Stymulant"
-    when 1 then return "Depresant"
-    when 2 then return "Psychodelik"
+	  when "0" then return "Stymulant"
+    when "1" then return "Depresant"
+    when "2" then return "Psychodelik"
 	end
 end
 
