@@ -1,6 +1,7 @@
 require 'sinatra'
 require './app/model'
 require './app/string.rb'
+require './app/parser.rb'
 require 'bcrypt'
 
 class Protected < Sinatra::Base
@@ -24,12 +25,7 @@ class Protected < Sinatra::Base
 	end
 
 	post '/ask' do
-		if params[:query] == 'pomoc'
-			return $pomoc
-		elsif params[:query][0..7] == 'produkty' 
-			return printProducts
-		else
-			return "Chyba coś poszło nie tak"
-		end
+		return parseString(params[:query])
+		return "Chyba coś poszło nie tak"
 	end
 end
