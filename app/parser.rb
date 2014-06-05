@@ -5,8 +5,8 @@ def parseString(message)
 	case splitedmessage[0]
 		when "p" then
 			return $pomoc
-		when "w" then printProducts
-			return 
+		when "w" then 
+			return printProducts
 		when "d" then
 			return
 		when "e" then
