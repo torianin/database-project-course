@@ -1,4 +1,5 @@
 require './app/produkty'
+require '../app/string'
 
 def parseString(message)
 	splitedmessage = message.split
@@ -8,7 +9,8 @@ def parseString(message)
 		when "w" then 
 			return printProducts
 		when "d" then
-			return
+      addProduct(splitedmessage[1],splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5])
+      return $dodano
 		when "e" then
 			return
 
