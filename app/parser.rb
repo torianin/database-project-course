@@ -1,5 +1,5 @@
 require './app/produkty'
-require '../app/string'
+require './app/string'
 
 def parseString(message)
 	splitedmessage = message.split
