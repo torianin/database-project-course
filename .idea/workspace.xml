@@ -48,8 +48,11 @@
         <entry file="file://$PROJECT_DIR$/app/produkty.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.71770334" vertical-offset="0" max-vertical-offset="720">
-              <caret line="30" column="109" selection-start-line="30" selection-start-column="109" selection-end-line="30" selection-end-column="109" />
-              <folding />
+              <caret line="30" column="144" selection-start-line="30" selection-start-column="144" selection-end-line="30" selection-end-column="144" />
+              <folding>
+                <marker date="1401960819000" expanded="true" signature="754:1322" placeholder="do ... end" />
+                <marker date="1401960819000" expanded="true" signature="782:1322" placeholder="do ... end" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -328,8 +331,11 @@
     <entry file="file://$PROJECT_DIR$/app/produkty.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71770334" vertical-offset="0" max-vertical-offset="720">
-          <caret line="30" column="109" selection-start-line="30" selection-start-column="109" selection-end-line="30" selection-end-column="109" />
-          <folding />
+          <caret line="30" column="144" selection-start-line="30" selection-start-column="144" selection-end-line="30" selection-end-column="144" />
+          <folding>
+            <marker date="1401960819000" expanded="true" signature="754:1322" placeholder="do ... end" />
+            <marker date="1401960819000" expanded="true" signature="782:1322" placeholder="do ... end" />
+          </folding>
         </state>
       </provider>
     </entry>

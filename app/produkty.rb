@@ -28,7 +28,7 @@ def printProducts
 	value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-      value = value +"Kategoria : " + category(row['category']) + "\nEfekt : " + effect(row['effects']) + "\nOpis : " + row['discription']
+      value = value +"Kategoria : " + category(row['category']) + "\nEfekt : " + effect(row['effects']) + "\nOpis : " + row['discription'] + "\n"]
     end
   end
 	value
