@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/app/produkty.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.71770334" vertical-offset="0" max-vertical-offset="720">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+              <caret line="30" column="109" selection-start-line="30" selection-start-column="109" selection-end-line="30" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -328,7 +328,7 @@
     <entry file="file://$PROJECT_DIR$/app/produkty.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71770334" vertical-offset="0" max-vertical-offset="720">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <caret line="30" column="109" selection-start-line="30" selection-start-column="109" selection-end-line="30" selection-end-column="109" />
           <folding />
         </state>
       </provider>
