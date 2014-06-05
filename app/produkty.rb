@@ -1,6 +1,7 @@
 require './app/model'
 
 def printProducts
+
 	p = PostgresConnector.new()
 	puts p
 	value = ""
