@@ -76,6 +76,6 @@ class PostgresConnector
 end
 
 def createModel
-	p = PostgresConnector.new()
+  p = PostgresConnector.instance
 	p.createTables
 end
