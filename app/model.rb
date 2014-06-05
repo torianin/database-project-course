@@ -3,7 +3,8 @@ require 'singleton'
 
 class PostgresConnector
 	include Singleton
-	def connect 
+
+	def initialize 
 	    db_parts = ENV['DATABASE_URL'].split(/\/|:|@/)
 	    username = db_parts[3]
 	    password = db_parts[4]
@@ -12,8 +13,8 @@ class PostgresConnector
 	    @conn = PGconn.open(:host =>  host, :dbname => db, :user=> username, :password=> password)
 	end
 
-	def method_name
-		
+	def getConnector
+		return @conn
 	end
 
 	# Create tables
@@ -73,24 +74,15 @@ class PostgresConnector
 	#Gets products
 	def getProducts
 		@conn.exec( "SELECT * FROM products" ) do |result|
-      result.each do |row|
-        yield row if block_given?
+      	result.each do |row|
+        	yield row if block_given?
 			end
-    end
+    	end
 	end
 
 	def disconnect
     	@conn.close
   	end
-end
-
-def printProducts
-	p = PostgresConnector.new()
-	p.connect
-	value = ""
-	p.getProducts{|row| value = value + row['category'] + " " + row['effects'] + " " + row['discription']}
-	p.disconnect
-	value
 end
 
 def createModel

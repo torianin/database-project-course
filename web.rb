@@ -1,5 +1,6 @@
 require 'sinatra'
 require './app/model'
+require './app/produkty'
 require './app/string.rb'
 require './app/parser.rb'
 require 'bcrypt'

@@ -3,11 +3,12 @@ def parseString(message)
 	case splitedmessage[0]
 		when "p" then
 			return $pomoc
-		when "a" then
+		when "w" then printProducts
 			return 
 		when "d" then
 			return
 		when "e" then
 			return
+
 	end
 end
