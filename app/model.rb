@@ -1,6 +1,10 @@
 require 'pg'
 require 'singleton'
 
+def sisusior 
+	return "miłosz"
+end
+
 class PostgresConnector
 	include Singleton
 	
