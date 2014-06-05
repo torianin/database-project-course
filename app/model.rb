@@ -70,15 +70,6 @@ class PostgresConnector
 		);");
 	end
 
-	#Gets products
-	def getProducts
-		@conn.exec( "SELECT * FROM products" ) do |result|
-      	result.each do |row|
-        	yield row if block_given?
-			end
-    	end
-	end
-
 	def disconnect
     	@conn.close
   	end

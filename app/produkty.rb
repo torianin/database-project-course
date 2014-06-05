@@ -4,6 +4,10 @@ def printProducts
 	p = PostgresConnector.instance
 	puts p
 	value = ""
-	p.getProducts{|row| value = value + row['category'] + " " + row['effects'] + " " + row['discription']}
+  p.getConnector.exec( "SELECT * FROM products" ) do |result|
+    result.each do |row|
+      value = value + row['category'] + " " + row['effects'] + " " + row['discription']
+    end
+  end
 	value
 end
