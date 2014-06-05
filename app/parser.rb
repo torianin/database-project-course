@@ -1,3 +1,5 @@
+require './app/produkty'
+
 def parseString(message)
 	splitedmessage = message.split
 	case splitedmessage[0]
