@@ -1,5 +1,7 @@
 require './web'
 
-run Rack::URLMap.new({
-  "/" => Protected
-})
+run Sinatra::Application
+
+#run Rack::URLMap.new({
+#  "/" => Protected
+#})

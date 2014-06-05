@@ -6,18 +6,35 @@ require './app/parser.rb'
 require 'bcrypt'
 
 class Protected < Sinatra::Base
-	enable :sessions
+  set :sessions => true
 
-	helpers do
+  register do
+    def auth (type)
+      condition do
+        redirect "/login" unless send("is_#{type}?")
+      end
+    end
+  end
 
-	end
+  helpers do
+    def is_user?
+      @user != nil
+    end
+  end
 
-	use Rack::Auth::Basic, "Protected Area" do |username, password|
-	  username == 'admin' && password == 'test'
-		
-	end
+  before do
+    @user = User.get(session[:user_id])
+  end
 
-	get '/' do
+  post "/login" do
+    session[:user_id] = User.authenticate(params).id
+  end
+
+  get "/logout" do
+    session[:user_id] = nil
+  end
+
+	get '/', :auth => :user do
 		erb :index
 	end
 
