@@ -1,12 +1,20 @@
 require './app/model'
 
+def category(category)
+	case category
+	  when 0 then return "Stymulant"
+    when 1 then return "Depresant"
+    when 2 then return "Psychodelik"
+	end
+end
+
 def printProducts
 	p = PostgresConnector.instance
 	puts p
 	value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-      value = value + row['category'] + " " + row['effects'] + " " + row['discription']
+      value = value + category(row['category']) + " " + row['effects'] + " " + row['discription']
     end
   end
 	value
