@@ -5,7 +5,9 @@ def parseString(message)
 			return $pomoc
 		when "a" then
 			return 
-		when "" then
+		when "d" then
+			return
+		when "e" then
 			return
 	end
 end

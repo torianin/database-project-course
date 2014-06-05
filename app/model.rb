@@ -1,6 +1,8 @@
 require 'pg'
+require 'singleton'
 
 class PostgresConnector
+	include Singleton
 	def connect 
 	    db_parts = ENV['DATABASE_URL'].split(/\/|:|@/)
 	    username = db_parts[3]
@@ -8,6 +10,10 @@ class PostgresConnector
 	    host = db_parts[5]
 	    db = db_parts[7]
 	    @conn = PGconn.open(:host =>  host, :dbname => db, :user=> username, :password=> password)
+	end
+
+	def method_name
+		
 	end
 
 	# Create tables
