@@ -24,8 +24,9 @@ class Protected < Sinatra::Base
 	end
 
 	post '/ask' do
-		if params[:query][0] == '$' && params[:query][-1] == '#'
-			return "Wszystko okej"
+		if params[:query][0] != '$' || params[:query][-1] != '#'
+			return "Wygląda na to, że coś poszło nie tak."
+			
 		elsif params[:query] == 'pomoc'
 			return $pomoc
 		elsif params[:query][0..7] == 'produkty' 
