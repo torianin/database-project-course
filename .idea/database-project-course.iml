@@ -7,6 +7,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.6.1, RVM: ruby-2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v0.17.1, RVM: ruby-2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-2.1.1) [gem]" level="application" />
+    <orderEntry type="module" module-name="ai-project-course" />
   </component>
 </module>
 
