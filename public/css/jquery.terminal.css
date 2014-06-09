@@ -9,6 +9,9 @@
 .cmd .prompt, .cmd .prompt div, .terminal .terminal-output div div{
     display: inline-block;
 }
+* {
+  background-color: black;
+}
 .cmd .clipboard {
     position: absolute;
     bottom: 0;

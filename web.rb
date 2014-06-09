@@ -5,24 +5,27 @@ require './app/string.rb'
 require './app/parser.rb'
 require 'bcrypt'
 
-class Protected < Sinatra::Base
-  set :sessions => true
+set :sessions => true
 
-	use Rack::Auth::Basic, "Protected Area" do |username, password|
-	  username == 'admin' && password == 'test'
+get '/' do
+	erb :index
+end
 
-	end
+get '/admin' do
+	createModel
+end
 
-	get '/' do
-		erb :index
-	end
+post '/ask' do
+  puts params[:query]
+	return parseString(params[:query])
+	return "Chyba coś poszło nie tak"
+end
 
-	get '/admin' do
-		createModel
-	end
-
-	post '/ask' do
-		return parseString(params[:query])
-		return "Chyba coś poszło nie tak"
-	end
+post '/login' do
+  puts params[:user],params[:password]
+  if params[:user] == "admin" and params[:password] == "21232f297a57a5a743894a0e4a801fc3"
+  	return "callback('OK');term.echo(\"Zalogowano\");"
+  else
+  	return "callback()"
+  end
 end

@@ -8,24 +8,42 @@
     <script src="/js/jquery.mousewheel-min.js"></script>
     <script src="/js/jquery.terminal-min.js"></script>
     <link href="/css/jquery.terminal.css" rel="stylesheet"/>
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
     <script>
     jQuery(document).ready(function($) {
-        $('body').terminal(function(command, term) {
+        $('#term').terminal(function(command, term) {
             $.post("ask",
             {
-                query:command,
+                query:command
             },
             function(data,status){
                 term.echo(data);
             });
         }, {
-        greetings: '[[b;green;black] _____     ___ ___         _           \n|     |___|  _|  _|___ ___| |_ ___ ___ \n|   --| . |  _|  _| -_|_ -|   | . | . |\n|_____|___|_| |_| |___|___|_|_|___|  _|\n                                  |_|\r\n]',
+        login: function(user, password, callback) {
+           
+           var term = $('#term').terminal();
+           var passhash = md5(password);
+           $.post("login",
+             {
+                 user:user,
+                 password:passhash
+             },
+            function(data,status){
+                eval(data)
+            });
+        },
+        greetings: '',
         name: 'login',
-        height: 200,
-        width: 450,
-        prompt: '> '});
+        height: 800,
+        width: 760,
+        onBlur: function() {
+          return false;
+        },
+        prompt: ''});
     });
     </script>
   </head>
 <body>
+<div id="term"></div>
 </body>
