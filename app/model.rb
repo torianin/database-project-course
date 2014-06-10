@@ -10,7 +10,7 @@ class PostgresConnector
 	    host = db_parts[5]
 	    db = db_parts[7]
 	    @conn = PGconn.open(:host =>  host, :dbname => db, :user=> username, :password=> password)
-	    prepareConnector
+	    #prepareConnector
 	end
 
 	#def prepareConnector
