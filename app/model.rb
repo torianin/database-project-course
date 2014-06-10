@@ -29,7 +29,7 @@ class PostgresConnector
 			password text NOT NULL,
 			role char(1) CHECK (role IN('c','s','a','d')) NOT NULL,
 			first_time boolean DEFAULT TRUE,
-			data text
+			date timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 		);
 
 		DROP TABLE IF EXISTS orders CASCADE;
