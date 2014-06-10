@@ -1,8 +1,9 @@
 require 'sinatra'
 require './app/model'
 require './app/produkty'
-require './app/string.rb'
-require './app/parser.rb'
+require './app/zapytania'
+require './app/string'
+require './app/parser'
 require 'bcrypt'
 
 set :sessions => true

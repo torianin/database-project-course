@@ -1,3 +1,5 @@
+require './app/model'
+
 	def printQueries
 	p = PostgresConnector.instance
 	puts p
