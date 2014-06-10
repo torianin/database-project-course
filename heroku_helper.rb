@@ -1,5 +1,5 @@
 str, t = "", nil
-Shoes.app :height => 100, :width => 450 do
+Shoes.app :height => 700, :width => 450 do
   background rgb(77, 77, 77)
   stack :margin => 10 do
     para span("Update aplikacji", :stroke => red, :fill => white), " * alt-q, żeby wyjść", :stroke => white
