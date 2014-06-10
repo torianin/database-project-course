@@ -58,7 +58,8 @@ class PostgresConnector
 			effects integer NOT NULL,
 			discription text NOT NULL,
 			prise integer NOT NULL,
-			prise_with_tax integer
+			prise_with_tax integer,
+			current_tax int NOT NULL
 		);
 
 		DROP TABLE IF EXISTS comments CASCADE;
