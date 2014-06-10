@@ -10,6 +10,8 @@ def parseString(message)
 		when "wyloguj" then
 			return "#term.logout();term.clear();"
 
+		when "alert" then
+			return "#alert(\"Operacja niedozwolona !!\");"
 
 		when "w" then 
 			case splitedmessage[1]
