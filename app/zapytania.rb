@@ -12,6 +12,7 @@ require './app/model'
 	value
 end
 
-	def addQuery(query)
-    	@conn.exec_prepared("insert_query", [query])
-	end
+def addQuery(query)
+  p = PostgresConnector.instance
+  p.getConnector.exec_prepared("insert_query", [query])
+end
