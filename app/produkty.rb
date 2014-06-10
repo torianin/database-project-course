@@ -12,7 +12,7 @@ def category(category)
     "7" => "raj hedonistów",
     "8" => "prowadzące do nawracających zaburzeń percepcji"
   }
-  return effects[category]
+  return categories[category]
 end
 
 def effect(effect)
