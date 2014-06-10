@@ -22,8 +22,9 @@ Shoes.app :height => 700, :width => 450 do
       self.clipboard = str
     when :alt_v
       str += self.clipboard
-    when :alt_u
-      str += `./sync.sh "Add user"`
+    when :alt_a
+      `./sync.sh \"#{str}\"`
+      str = ""
     end
     t.replace str
   end
