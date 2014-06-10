@@ -1,25 +1,34 @@
 require './app/model'
 
 def category(category)
-	case category
-	  when "0" then return "Stymulant"
-    when "1" then return "Depresant"
-    when "2" then return "Psychodelik"
-	end
+  categories = {
+    "0" => "niszczące mózg", 
+    "1" => "wywołujące strach przed szaleństwem", 
+    "2" => "złodzieje marzeń", 
+    "3" => "wampiry emocjonalne", 
+    "4" => "powodujące szybkie nieregularne bicie serca", 
+    "5" => "pozbawiające uczucia wyspania pomimo dostatecznej długości snu", 
+    "6" => "kopiujące osobowość",
+    "7" => "raj hedonistów",
+    "8" => "prowadzące do nawracających zaburzeń percepcji"
+  }
+  return effects[category]
 end
 
 def effect(effect)
-  case effect
-    when "0" then return "Uczucie odprężenia"
-    when "1" then return "Słabsza reakcja na ból"
-    when "2" then return "Euforia"
-    when "3" then return "Senność"
-    when "4" then return "Błogostan"
-    when "5" then return "Brak potrzeby snu"
-    when "6" then return "Widzisz dźwięki i słyszysz kolory"
-    when "7" then return "Podniecenie"
-    when "8" then return "Urojenie i halucynacje wzrokowe"
-  end
+  effects = {
+    "0" => "gniew", 
+    "1" => "smutek", 
+    "2" => "beznadziejność", 
+    "3" => "rozczarowanie", 
+    "4" => "obojętność", 
+    "5" => "samotność", 
+    "6" => "upokorzenie", 
+    "7" => "zaskoczenie", 
+    "8" => "zażenowanie", 
+    "9" => "bezsilność"
+  }
+  return effects[effect]
 end
 
 def printProducts
