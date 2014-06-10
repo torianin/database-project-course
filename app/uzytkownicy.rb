@@ -1,6 +1,6 @@
 require './app/model'
 
-def printProducts
+def printUsers
 	p = PostgresConnector.instance
 	puts p
 	value = ""
