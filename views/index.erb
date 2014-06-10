@@ -17,7 +17,11 @@
                 query:command
             },
             function(data,status){
-                term.echo(data);
+                if (data.charAt(0) == '#') {
+                  eval(data.slice(1,data.length-1);)
+                }else{
+                  term.echo(data);
+                };
             });
         }, {
         login: function(user, password, callback) {
