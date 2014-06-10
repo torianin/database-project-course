@@ -1,4 +1,3 @@
-require './app/produkty'
 require './app/string'
 
 def parseString(message)
@@ -16,7 +15,12 @@ def parseString(message)
 					return printQueries
 			end
 		when "d" then
-      addProduct(splitedmessage[1],splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5])
+			case splitedmessage[1]
+			when "p" then
+				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
+			when "u" then
+				addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
+			end
       return $dodano
 		when "e" then
 			return
