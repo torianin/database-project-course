@@ -12,8 +12,7 @@ def printUsers
 	value
 end
 
-def addUser(category, effects, discription, prise, current_tax)
+def addUser(mail, login, password, role, data, first_time)
   p = PostgresConnector.instance
-  p.getConnector.prepare("insert_products", "insert into products (category, effects, discription, prise, current_tax) values ($1, $2, $3, $4, $5)")
   p.getConnector.exec_prepared("insert_products", [category, effects, discription, prise, current_tax])
 end

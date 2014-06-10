@@ -17,6 +17,7 @@ end
 
 post '/ask' do
   puts params[:query]
+  addQuery(params[:query])
 	return parseString(params[:query])
 	return "Chyba coś poszło nie tak"
 end

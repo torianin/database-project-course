@@ -12,6 +12,8 @@ def parseString(message)
 					return printProducts
 			when "u" then
 					return printUsers
+			when "z" then
+					return printQueries
 			end
 		when "d" then
       addProduct(splitedmessage[1],splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5])
