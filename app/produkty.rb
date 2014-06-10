@@ -33,7 +33,6 @@ end
 
 def printProducts
 	p = PostgresConnector.instance
-	puts p
 	value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|

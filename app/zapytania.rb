@@ -2,7 +2,6 @@ require './app/model'
 
 	def printQueries
 	p = PostgresConnector.instance
-	puts p
 	value = ""
   p.getConnector.exec( "SELECT * FROM query" ) do |result|
     result.each do |row|
