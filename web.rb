@@ -5,9 +5,9 @@ require './app/uzytkownicy'
 require './app/zapytania'
 require './app/string'
 require './app/parser'
-require 'bcrypt'
 
 set :sessions => true
+set :session_secret, 'super secret'
 
 get '/' do
 	erb :index
@@ -27,7 +27,9 @@ end
 post '/login' do
   user = getUserId(params[:user])
   if params[:user] == user[:login] and params[:password] == user[:password]
-  	return "callback('OK');term.echo(\"Zalogowano\");"
+  	session[:login] = user[:login]
+  	session[:role] = user[:role]
+  	return "callback('OK');term.echo(\"Witaj#{user[:role]}\");"
   else
   	return "callback()"
   end
