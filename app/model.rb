@@ -33,7 +33,7 @@ class PostgresConnector
 			login text NOT NULL UNIQUE,
 			password text NOT NULL,
 			role char(1) CHECK (role IN('c','s','a','d')) NOT NULL,
-			boolean first_time DEFAULT true;
+			boolean first_time DEFAULT true,
 			data text
 		);
 
