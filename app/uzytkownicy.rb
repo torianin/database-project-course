@@ -14,5 +14,5 @@ end
 
 def addUser(mail, login, password, role)
   p = PostgresConnector.instance
-  p.getConnector.exec_prepared("insert_users", [mail, login, password, role, data,first_time])
+  p.getConnector.exec_prepared("insert_users", [mail, login, password, role])
 end
