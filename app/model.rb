@@ -10,14 +10,13 @@ class PostgresConnector
 	    host = db_parts[5]
 	    db = db_parts[7]
 	    @conn = PGconn.open(:host =>  host, :dbname => db, :user=> username, :password=> password)
-	    #prepareConnector
 	end
 
-	#def prepareConnector
-  #	@conn.prepare("insert_products", "insert into products (category, effects, discription, prise, current_tax) values ($1, $2, $3, $4, $5)")
-  #	@conn.prepare("insert_users", "insert into users (mail, login, password, role, data) values ($1, $2, $3, $4, $5)")
-	#	@conn.prepare("insert_query", "insert into query (query_text) values ($1)")
-	#end
+	def prepareConnectors
+  	@conn.prepare("insert_products", "insert into products (category, effects, discription, prise, current_tax) values ($1, $2, $3, $4, $5)")
+  	@conn.prepare("insert_users", "insert into users (mail, login, password, role, data) values ($1, $2, $3, $4, $5)")
+		@conn.prepare("insert_query", "insert into query (query_text) values ($1)")
+	end
 
 	def getConnector
 		return @conn
@@ -87,4 +86,5 @@ end
 def createModel
   p = PostgresConnector.instance
 	p.createTables
+	p.prepareConnectors
 end
