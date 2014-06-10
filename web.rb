@@ -27,7 +27,7 @@ end
 post '/login' do
   puts params[:user],params[:password]
   user = getUserId(params[:user])
-  puts user
+  return user
   if params[:user] == "admin" and params[:password] == "669a84def65ee15142c5abb9ee29e2de"
   	return "callback('OK');term.echo(\"Zalogowano\");"
   else
