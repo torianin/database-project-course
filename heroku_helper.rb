@@ -1,4 +1,4 @@
-str, t = "", nil
+$str, t = "", nil
 Shoes.app :height => 150, :width => 450 do
   background "../static/menu-gray.png"
   background "../static/menu-top.png", :height => 50
@@ -20,26 +20,27 @@ Shoes.app :height => 150, :width => 450 do
 
   stack :margin => 10 do
     button "Aktualizuj" do
-      `./sync.sh \"#{str}\"`
-      str = ""    
+      `./sync.sh \"#{$str}\"`
+      $str = ""    
+      t.replace $str
     end
   end
 
   keypress do |k|
     case k
     when String
-      str += k
+      $str += k
     when :backspace
-      str.slice!(-1)
+      $str.slice!(-1)
     when :tab
-      str += "  "
+      $str += "  "
     when :alt_q
       quit
     when :alt_c
-      self.clipboard = str
+      self.clipboard = $str
     when :alt_v
-      str += self.clipboard
+      $str += self.clipboard
     end
-    t.replace str
+    t.replace $str
   end
 end
