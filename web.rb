@@ -5,7 +5,6 @@ require './app/uzytkownicy'
 require './app/zapytania'
 require './app/string'
 require './app/parser'
-require './app/utilities'
 
 set :sessions => true
 set :session_secret, 'super secret'
