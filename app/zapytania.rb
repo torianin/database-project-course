@@ -6,7 +6,7 @@ require './app/model'
 	value = ""
   p.getConnector.exec( "SELECT * FROM query" ) do |result|
     result.each do |row|
-      value = value +"Zapytanie = " + row['query_text'] + row['date']) + "\n"
+      value = value +"Zapytanie = " + row['query_text'] + row['date'] + "\n"
     end
   end
 	value
