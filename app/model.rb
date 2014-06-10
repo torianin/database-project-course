@@ -13,12 +13,11 @@ class PostgresConnector
 	    prepareConnector
 	end
 
-	def prepareConnector
-  	@conn.prepare("insert_products", "insert into products (category, effects, discription, prise, current_tax) values ($1, $2, $3, $4, $5)")
-  	@conn.prepare("insert_users", "insert into users (mail, login, password, role, data) values ($1, $2, $3, $4, $5)")
-		@conn.prepare("insert_query", "insert into query (query_text) values ($1)")
-
-	end
+	#def prepareConnector
+  #	@conn.prepare("insert_products", "insert into products (category, effects, discription, prise, current_tax) values ($1, $2, $3, $4, $5)")
+  #	@conn.prepare("insert_users", "insert into users (mail, login, password, role, data) values ($1, $2, $3, $4, $5)")
+	#	@conn.prepare("insert_query", "insert into query (query_text) values ($1)")
+	#end
 
 	def getConnector
 		return @conn
@@ -59,7 +58,7 @@ class PostgresConnector
 			discription text NOT NULL,
 			prise integer NOT NULL,
 			prise_with_tax integer,
-			current_tax int NOT NULL
+			current_tax integer NOT NULL
 		);
 
 		DROP TABLE IF EXISTS comments CASCADE;
