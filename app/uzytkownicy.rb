@@ -6,7 +6,7 @@ def printUsers
 	value = ""
   p.getConnector.exec( "SELECT * FROM users" ) do |result|
     result.each do |row|
-      value = value +"Użytkownicy : " + category(row['category']) + "\nEfekt : " + effect(row['effects']) + "\nOpis : " + row['discription'] + "\n"
+      value = value +"Użytkownicy : " + category(row['id_user']) + ". " + effect(row['login']) + ", " + row['role'] + "\n" + row['data'] + "\n"
     end
   end
 	value

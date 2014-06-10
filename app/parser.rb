@@ -7,7 +7,12 @@ def parseString(message)
 		when "p" then
 			return $pomoc
 		when "w" then 
-			return printProducts
+			case splitedmessage[1]
+			when "p" then
+					return printProducts
+			when "u" then
+					return printUsers
+			end
 		when "d" then
       addProduct(splitedmessage[1],splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5])
       return $dodano
