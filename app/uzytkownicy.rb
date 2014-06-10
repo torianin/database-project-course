@@ -18,7 +18,7 @@ end
 
 def getUserId(login)
 	p = PostgresConnector.instance
-	info 
+	info = Hash.new
   p.getConnector.exec( "SELECT * FROM users WHERE login ='#{login}' " ) do |result|
     result.each do |row|
     	info = { :login => row['login'], :password => row['password'], :role => row['role'] }
