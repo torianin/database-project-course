@@ -12,7 +12,7 @@ def parseString(message)
 		when "alert" then
 			return "#alert(\"Operacja niedozwolona !!\");"
 
-		when "w" then 
+		when "wyświetl" then 
 			case splitedmessage[1]
 			when "p" then
 					return printProducts
