@@ -1,4 +1,5 @@
 require 'sinatra'
+require './app/checker'
 require './app/model'
 require './app/produkty'
 require './app/uzytkownicy'
@@ -20,6 +21,9 @@ end
 post '/ask' do
   puts params[:query]
   addQuery(params[:query])
+  if checkedValue != true
+    return setColor(checkedValue)
+  end
 	return parseString(params[:query])
 	return "Chyba coś poszło nie tak"
 end
