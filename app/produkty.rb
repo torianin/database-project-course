@@ -1,4 +1,5 @@
 require './app/model'
+require 'terminal-table'
 
 def category(category)
   categories = {
