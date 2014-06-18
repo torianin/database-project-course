@@ -1,6 +1,8 @@
 require './app/string'
 require './app/mailer'
 require './app/kurs'
+require 'pusher'
+Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com/apps/76635"
 
 def parseString(message)
 	splitedmessage = message.split
@@ -24,13 +26,18 @@ def parseString(message)
 					return printQueries
 			end
 
-
 		when "dodaj" then
 			case splitedmessage[1]
 			when "produkt" then
 				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
 			when "użytkownika" then
-				addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
+				if splitedmessage.size <= 2
+		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+		        message: '#var term = $(\'#term\').terminal();term.exec(\'test\',false);'
+		      })
+				else
+					addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
+				end
 			end
       return $dodano
 
