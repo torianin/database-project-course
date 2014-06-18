@@ -3,9 +3,8 @@ require './app/string'
 def parseString(message)
 	splitedmessage = message.split
 	case splitedmessage[0]
-		when "p" then
+		when "pomoc" then
 			return $pomoc
-
 
 		when "wyloguj" then
 			return "#term.logout();term.clear();"
@@ -36,6 +35,9 @@ def parseString(message)
 
 		when "e" then
 			return
+
+    when "i" then
+
 
 	end
 end

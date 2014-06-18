@@ -1,11 +1,15 @@
 require 'rubygems'
-require 'geokit'
 require 'openssl'
+require 'geokit'
 
-a = gets.chomp
-first_place = Geokit::Geocoders::GoogleGeocoder.geocode '#{a}'
+Geokit::default_units = :kms
+Geokit::default_formula = :sphere
 
-b = gets.chomp
-second_place=Geokit::Geocoders::GoogleGeocoder.geocode '#{b}'
+#a = gets.chomp
+first_place = Geokit::Geocoders::GoogleGeocoder.geocode '51.109406, 17.047482' # Wrocław
+puts first_place.ll
 
-puts a.distance_to(b)
+#b = gets.chomp
+second_place=Geokit::Geocoders::GoogleGeocoder.geocode '50.057771, 19.942240' #Krakow
+puts second_place.ll
+puts first_place.distance_to(second_place)
