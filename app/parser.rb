@@ -59,8 +59,9 @@ def parseString(message)
 			     Pusher['test_channel'].trigger("#{session[:session_id]}", {
 			        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id = #{splitedmessage[1]}) (kategoria = #{produkt["category"]}) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
 			      })
+			   end
 				when "użytkownika" then
-					"cos"
+					
 			end
 
 		when "kurs" then
