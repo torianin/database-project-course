@@ -13,7 +13,7 @@ class Dictionary
     def checkWords(query)
         checkvalue = true
         checklist = query.delete('^ aąbcćdeęfghijklłmnńoóprsśtuwyzźżAĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ').split
-			 	@dict.check(checklist[0]) == false
+			 	if @dict.check(checklist[0]) == false
 	          checkvalue = false
 	          suggestions = @dict.suggest(word)
 	          if (suggestions.size)
