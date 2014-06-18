@@ -22,7 +22,7 @@ post '/ask' do
   puts params[:query]
   addQuery(params[:query])
   d = Dictionary.instance
-  checkedValue = d.checkWords(query) 
+  checkedValue = d.checkWords(params[:query]) 
   if checkedValue != true
     return setColor(checkedValue)
   end
