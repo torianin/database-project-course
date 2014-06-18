@@ -1,6 +1,8 @@
 require './app/string'
 require './app/mailer'
 require './app/kurs'
+require './app/produkty'
+
 require 'pusher'
 Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com/apps/76635"
 
@@ -55,7 +57,7 @@ def parseString(message)
 			case splitedmessage[1]
 				when "produkt" then
 					if splitedmessage.size == 3
-						produkt = getProductById(splitedmessage[3].to_i)
+						produkt = getProductById(2)
 						return produkt
 			     #Pusher['test_channel'].trigger("#{session[:session_id]}", {
 			      #  message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id ='+ splitedmessage[2].to_s +') (kategoria = ' + produkt["category"].to_s +' ) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
