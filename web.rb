@@ -27,7 +27,7 @@ post '/ask' do
   if checkedValue != true
     return checkedValue
   end
-	return parseString(params[:query])
+	return parseString(query)
 	return "Chyba coś poszło nie tak"
 end
 
