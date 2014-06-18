@@ -1,4 +1,5 @@
 require './app/string'
+require './app/mailer'
 
 def parseString(message)
 	splitedmessage = message.split
@@ -25,19 +26,27 @@ def parseString(message)
 
 		when "dodaj" then
 			case splitedmessage[1]
-			when "p" then
+			when "produkt" then
 				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
-			when "u" then
+			when "użytkownika" then
 				addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
 			end
       return $dodano
 
+		when "kup" then
+			case splitedmessage[1]
+			when "produkt" then
+				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
+			end
+      return $dodano
 
-		when "e" then
+		when "edytuj" then
 			return
 
-    when "i" then
-
+    when "zaproś" then
+			m = Mailer.instance
+			m.createMail(splitedmessage[1], 'Witamy w tajnej społeczności narkomanów.', 'Aby dokończyć proces rejestracji wejdź w linka http://database-project-course.herokuapp.com/')
+		end
 
 	end
 end
