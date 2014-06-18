@@ -37,11 +37,11 @@ def printProducts
 	rows = []
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-
       rows << [category(row['category']), effect(row['effects']), row['discription'] ]
     end
   end
 	table = Terminal::Table.new :rows => rows
+  return table
 end
 
 def addProduct(category, effects, discription, prise, current_tax)
