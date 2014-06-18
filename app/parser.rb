@@ -1,5 +1,6 @@
 require './app/string'
 require './app/mailer'
+require './app/kurs'
 
 def parseString(message)
 	splitedmessage = message.split
@@ -45,6 +46,9 @@ def parseString(message)
 		when "edytuj" then
 			getUser
 			return 
+
+		when "kurs" then
+			return getBitcoinValue
 
     when "zaproś" then
 			m = Mailer.instance
