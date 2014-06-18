@@ -47,7 +47,5 @@ def parseString(message)
 			m = Mailer.instance
 			m.createMail(splitedmessage[1], 'Witamy w tajnej społeczności narkomanów.', 'Aby dokończyć proces rejestracji wejdź w linka http://database-project-course.herokuapp.com/')
 			return $zaproszono
-		end
-
 	end
 end
