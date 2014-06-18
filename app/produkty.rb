@@ -41,6 +41,7 @@ def printProducts
     end
   end
 	table = Terminal::Table.new :rows => rows
+  table.to_s
 end
 
 def addProduct(category, effects, discription, prise, current_tax)
