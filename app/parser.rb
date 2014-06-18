@@ -33,7 +33,7 @@ def parseString(message)
 			when "użytkownika" then
 				if splitedmessage.size <= 2
 		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-		        message: '#var term = $(\'#term\').terminal();term.exec(\'test\',true);'
+		        message: '#var term = $(\'#term\').terminal();term.insert(\'test\');'
 		      })
 				else
 					addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
