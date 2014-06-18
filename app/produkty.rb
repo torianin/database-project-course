@@ -1,5 +1,4 @@
 require './app/model'
-require 'terminal-table'
 
 def category(category)
   categories = {
@@ -34,15 +33,13 @@ end
 
 def printProducts
 	p = PostgresConnector.instance
-	@rows = []
+	value = "Id :\tKategoria : \tEfekt : \tOpis :\t"
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-      @rows << [ category(row['category']), effect(row['effects']), row['discription'] ]
+      value = value + "\n" + row['id_product'] + "\t" + category(row['category']) + "\t" + effect(row['effects']) + "\t" + row['discription']
     end
   end
-	table = Terminal::Table.new :rows => @rows
-  puts table
-  return table
+	value
 end
 
 def addProduct(category, effects, discription, prise, current_tax)
