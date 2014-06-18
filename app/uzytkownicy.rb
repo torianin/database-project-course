@@ -2,13 +2,14 @@ require './app/model'
 
 def printUsers
 	p = PostgresConnector.instance
-	value = ""
+  @rows = []
   p.getConnector.exec( "SELECT * FROM users" ) do |result|
     result.each do |row|
-      value = value + row['id_user'].to_s + " : " + row['mail'] + ", " + row['login'] + ", " + row['role'] + ", " + row['date'] + "\n"
+      @rows << [row['id_user'].to_s,row['mail'],row['login'],row['role'],row['date']]
     end
   end
-	value
+  table = Terminal::Table.new :headings => ['Id','Mail','Login','Rola','Data dołączenia'], :rows => @rows
+  table.to_s
 end
 
 def addUser(mail, login, password, role)
