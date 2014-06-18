@@ -40,7 +40,7 @@ def printProducts
   value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-      @rows << [row['id_product']]
+      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription']]
       value = value + "\n" + row['id_product'] + "\t" + category(row['category']) + "\t" + effect(row['effects']) + "\t" + row['discription']
     end
   end
