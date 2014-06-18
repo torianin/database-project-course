@@ -28,3 +28,6 @@ class Mailer
       @mail.deliver!
   end
 end
+
+m = Mailer.instance
+m.createMail('tori@robert-i.com', 'Witamy w tajnej społeczności narkomanów.', 'Aby dokończyć proces rejestracji wejdź w linka http://database-project-course.herokuapp.com/')
