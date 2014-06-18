@@ -24,7 +24,7 @@ post '/ask' do
   d = Dictionary.instance
   checkedValue = d.checkWords(params[:query]) 
   if checkedValue != true
-    return setColor(checkedValue)
+    return checkedValue
   end
 	return parseString(params[:query])
 	return "Chyba coś poszło nie tak"
