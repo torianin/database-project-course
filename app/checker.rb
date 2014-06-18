@@ -6,7 +6,7 @@ class Dictionary
   include Singleton
 
     def initialize()
-        @dict = Hunspell.new("./slownik/")
+        @dict = Hunspell.new("./slownik/pl_PL.aff", "./slownik/pl_PL.dic")
         @dict.add("Pomoc")
     end
 
