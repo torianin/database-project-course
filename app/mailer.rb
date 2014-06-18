@@ -8,19 +8,19 @@ class Mailer
     def initialize()
       Mail.defaults do
         delivery_method :smtp, {
-            :address => 'poczta.o2.pl',
+            :address => 'robert-i.com',
             :port => '587',
-            :user_name => 'prawdziwy-mail@o2.pl',
+            :user_name => 'bazy@robert-i.com',
             :password => 'olamakota123',
-            :authentication => :login,
-            :enable_starttls_auto => true
+            :authentication => :plain,
+            :enable_starttls_auto => false
         }
       end
     end
 
     def createMail(to, subject, body)
       @mail = Mail.new do
-        from     'prawdziwy-mail@o2.pl'
+        from     'bazy@robert-i.com'
         to       "#{to}"
         subject "#{subject}"
         body "#{body}"
@@ -28,6 +28,3 @@ class Mailer
       @mail.deliver!
   end
 end
-
-m = Mailer.instance
-m.createMail('tori@robert-i.com', 'Witamy w tajnej społeczności narkomanów.', 'Aby dokończyć proces rejestracji wejdź w linka http://database-project-course.herokuapp.com/')
