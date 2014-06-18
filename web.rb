@@ -10,7 +10,12 @@ require './app/parser'
 set :sessions => true
 set :session_secret, 'super secret'
 
+def getSessionName
+  session[:name]
+end
+
 get '/' do
+  getSessionId
   session[:shoppingcart] = []
 	erb :index
 end
