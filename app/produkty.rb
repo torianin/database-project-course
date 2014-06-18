@@ -62,7 +62,7 @@ def addProduct(category, effects, discription, prise, current_tax)
   p.getConnector.exec_prepared("insert_products", [category, effects, discription, prise, current_tax])
 end
 
-def editProduct(category, effects, discription, prise, current_tax)
+def editProduct(category, effects, discription, prise, current_tax,id)
   p = PostgresConnector.instance
-  p.getConnector.exec_prepared("insert_products", [category, effects, discription, prise, current_tax])
+  p.getConnector.exec_prepared("update_products", [category, effects, discription, prise, current_tax,id])
 end

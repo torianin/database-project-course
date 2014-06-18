@@ -1,7 +1,6 @@
 require './app/string'
 require './app/mailer'
 require './app/kurs'
-require './app/produkty'
 
 require 'pusher'
 Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com/apps/76635"
@@ -62,6 +61,8 @@ def parseString(message)
 			     #Pusher['test_channel'].trigger("#{session[:session_id]}", {
 			      #  message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id ='+ splitedmessage[2].to_s +') (kategoria = ' + produkt["category"].to_s +' ) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
 			      #})
+					else
+						editProduct(splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6],splitedmessage[2])
 			   end
 				when "użytkownika" then
 					

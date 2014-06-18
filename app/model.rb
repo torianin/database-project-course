@@ -13,6 +13,7 @@ class PostgresConnector
 	  	@conn.prepare("insert_products", "insert into products (category, effects, discription, prise, current_tax) values ($1, $2, $3, $4, $5)")
 	  	@conn.prepare("insert_users", "insert into users (mail, login, password, role) values ($1, $2, $3, $4)")
 			@conn.prepare("insert_query", "insert into query (query_text) values ($1)")
+			@conn.prepare("update_products", "update products set category = $1, effects = $2, discription = $3, prise = $4, current_tax = $5 where id_product = $6")
 	end
 
 	def getConnector
@@ -72,7 +73,21 @@ class PostgresConnector
 			id_query serial PRIMARY KEY,
 			query_text text NOT NULL,
 			date timestamp without time zone DEFAULT CURRENT_TIMESTAMP
-		);");
+		);
+
+		DROP function IF EXISTS update_prise() CASCADE;
+		CREATE FUNCTION update_prise() RETURNS TRIGGER AS 
+		$X$
+		BEGIN
+			UPDATE products SET prise_with_tax = prise + current_tax;
+			RETURN new;
+		END 
+		$X$
+		LANGUAGE plpgsql;
+
+		DROP TRIGGER IF EXISTS add_tax ON products;
+		CREATE TRIGGER add_tax AFTER UPDATE ON products FOR EACH ROW 
+		EXECUTE PROCEDURE update_prise();");
 	end
 
 	def disconnect
