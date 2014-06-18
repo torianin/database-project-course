@@ -20,7 +20,7 @@ end
 
 post '/ask' do
   query = params[:query]
-  query.downcase
+  query = query.downcase
   addQuery(query)
   d = Dictionary.instance
   checkedValue = d.checkWords(query) 
