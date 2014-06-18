@@ -1,11 +1,21 @@
 require './app/model'
 
+def rola(rola)
+  role = {
+    "c" => "client", 
+    "a" => "admin", 
+    "s" => "sprzedawca", 
+    "d" => "kierowca"
+  }
+  return role[rola]
+end
+
 def printUsers
 	p = PostgresConnector.instance
   @rows = []
   p.getConnector.exec( "SELECT * FROM users" ) do |result|
     result.each do |row|
-      @rows << [row['id_user'].to_s,row['mail'],row['login'],row['role'],row['date']]
+      @rows << [row['id_user'].to_s,row['mail'],row['login'],rola(row['role']),row['date']]
     end
   end
   table = Terminal::Table.new :headings => ['Id','Mail','Login','Rola','Data dołączenia'], :rows => @rows
