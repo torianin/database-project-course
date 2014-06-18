@@ -10,8 +10,10 @@ require './app/parser'
 set :sessions => true
 set :session_secret, 'super secret'
 
-def getSessionName
-  session[:name]
+helpers do
+  def getSessionName
+    session[:name]
+  end
 end
 
 get '/' do
