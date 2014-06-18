@@ -7,7 +7,6 @@ class Dictionary
 
     def initialize()
         @dict = Hunspell.new("./slownik/pl_PL.aff", "./slownik/pl_PL.dic")
-        @dict.add("Pomoc")
     end
 
     def checkWords(query)
