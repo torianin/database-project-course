@@ -43,7 +43,7 @@ def printProducts
       value = value + "\n" + row['id_product'] + "\t" + category(row['category']) + "\t" + effect(row['effects']) + "\t" + row['discription']
     end
   end
-	table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis'] :rows => @rows
+	table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis'], :rows => @rows
   table.to_s
 end
 
