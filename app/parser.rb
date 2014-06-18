@@ -1,6 +1,7 @@
 require './app/string'
 
 def parseString(message)
+	splitedmessage.downcase
 	splitedmessage = message.split
 	case splitedmessage[0]
 		when "pomoc" then
