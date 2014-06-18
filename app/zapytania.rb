@@ -8,7 +8,7 @@ require './app/model'
       @rows << [row['query_text'],row['date']]
     end
   end
-  table = Terminal::Table.new :headings => ['Zapytanie','Data'], :rows => @rows, :style => {:width => 40}
+  table = Terminal::Table.new :headings => ['Zapytanie','Data'], :rows => @rows
   table.to_s
 end
 
