@@ -9,6 +9,7 @@ require './app/model'
     end
   end
   table = Terminal::Table.new :headings => ['Zapytanie','Data'], :rows => @rows
+  table.style = {:width => 40}  
   table.to_s
 end
 
