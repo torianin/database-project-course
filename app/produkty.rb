@@ -1,4 +1,5 @@
 require './app/model'
+require 'rubygems'
 
 def category(category)
   categories = {
@@ -33,13 +34,13 @@ end
 
 def printProducts
 	p = PostgresConnector.instance
-	value = "Id :\tKategoria : \tEfekt : \tOpis :\t"
+	rows = ['Id','Kategoria','Efekt','Opis']
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
       value = value + "\n" + row['id_product'] + "\t" + category(row['category']) + "\t" + effect(row['effects']) + "\t" + row['discription']
     end
   end
-	value
+	table = Terminal::Table.new :rows => rows
 end
 
 def addProduct(category, effects, discription, prise, current_tax)
