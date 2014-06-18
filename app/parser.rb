@@ -34,7 +34,7 @@ def parseString(message)
 			when "użytkownika" then
 				if splitedmessage.size == 2
 		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-		        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj użytkownika (mail) (login) (password) (rola c=∂klient, s=sprzedawca, a=admin, d=kierowca)\r\');'
+		        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj użytkownika (mail) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
 		      })
 				else
 					addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
@@ -52,8 +52,15 @@ def parseString(message)
     	end
 
 		when "edytuj" then
-			getUser
-			return 
+			case splitedmessage[1]
+				when "produkt" then
+					if splitedmessage.size == 3
+						produkt = getProductById(splitedmessage[3].to_i)
+			     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+			        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id = #{splitedmessage[1]}) (kategoria = #{produkt["category"]}) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
+			      })
+				when "użytkownika" then
+			end
 
 		when "kurs" then
 			return getBitcoinValue

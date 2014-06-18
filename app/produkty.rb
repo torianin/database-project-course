@@ -39,11 +39,22 @@ def printProducts
   value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription']]
+      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription'],row['prise']]
     end
   end
-	table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis'], :rows => @rows
+	table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis','Cena'], :rows => @rows
   table.to_s
+end
+
+def getProductById(id)
+  p = PostgresConnector.instance
+  info = Hash.new
+  p.getConnector.exec( "SELECT * FROM products WHERE id_product = #{id} " ) do |result|
+    result.each do |row|
+      info = { :category => row['category'], :effects => row['effects'], :discription => row['discription'], :prise => row['prise'] }
+    end
+  end
+  info
 end
 
 def addProduct(category, effects, discription, prise, current_tax)
