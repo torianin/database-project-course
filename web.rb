@@ -19,10 +19,11 @@ get '/admin' do
 end
 
 post '/ask' do
-  puts params[:query]
-  addQuery(params[:query])
+  query = params[:query]
+  query.downcase
+  addQuery(query)
   d = Dictionary.instance
-  checkedValue = d.checkWords(params[:query]) 
+  checkedValue = d.checkWords(query) 
   if checkedValue != true
     return checkedValue
   end
