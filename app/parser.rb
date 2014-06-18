@@ -60,6 +60,7 @@ def parseString(message)
 			        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id = #{splitedmessage[1]}) (kategoria = #{produkt["category"]}) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
 			      })
 				when "użytkownika" then
+					"cos"
 			end
 
 		when "kurs" then
