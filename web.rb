@@ -11,8 +11,8 @@ set :sessions => true
 set :session_secret, 'super secret'
 
 helpers do
-  def getSessionName
-    session[:name]
+  def getSessionId
+      session[:session_id]
   end
 end
 
