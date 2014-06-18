@@ -11,6 +11,7 @@ set :sessions => true
 set :session_secret, 'super secret'
 
 get '/' do
+  session[:shoppingcart] = []
 	erb :index
 end
 

@@ -34,11 +34,12 @@ def parseString(message)
       return $dodano
 
 		when "kup" then
-			case splitedmessage[1]
-			when "produkt" then
-				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
-			end
-      return $dodano
+			session[:shoppingcart] << splitedmessage[1]
+      return "Dodano. Aktualnie w koszyku #{session[:shoppingcart]}. Aby sfinalizować zakup napisz finalizuj"
+
+		when "finalizuj" then
+			if session[:shoppingcart] == []
+      return "Masz pusty koszyk."
 
 		when "edytuj" then
 			return
