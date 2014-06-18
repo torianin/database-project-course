@@ -32,9 +32,9 @@ def parseString(message)
 				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
 			when "użytkownika" then
 				if splitedmessage.size <= 2
-		     #Pusher['test_channel'].trigger("#{session[:session_id]}", {
-		     #   message: '#var term = $(\'#term\').terminal();term.exec(\'test\',false);'
-		     # })
+		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+		        message: '#var term = $(\'#term\').terminal();term.exec(\'test\',false);'
+		      })
 				else
 					addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
 				end
