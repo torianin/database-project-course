@@ -4,6 +4,7 @@ GEM
     ffi (1.0.11)
     geokit (1.8.5)
       multi_json (>= 1.3.2)
+    httpclient (2.3.4.1)
     hunspell-ffi (0.1.3)
       ffi (~> 1.0.7)
     mail (2.6.1)
@@ -11,9 +12,14 @@ GEM
     mime-types (2.3)
     multi_json (1.10.1)
     pg (0.17.1)
+    pusher (0.12.0)
+      httpclient (~> 2.3.0)
+      multi_json (~> 1.0)
+      signature (~> 0.1.6)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    signature (0.1.7)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -29,5 +35,6 @@ DEPENDENCIES
   hunspell-ffi
   mail
   pg
+  pusher
   sinatra (= 1.4.5)
   terminal-table
