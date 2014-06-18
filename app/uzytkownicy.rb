@@ -1,4 +1,6 @@
 require './app/model'
+require 'pusher'
+Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com/apps/76635"
 
 def rola(rola)
   role = {
@@ -36,4 +38,10 @@ def getUserId(login)
     end
   end
 	info
+end
+
+def getUser()
+     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+        message: '#alert("Dziala");'
+      })
 end

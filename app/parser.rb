@@ -43,7 +43,8 @@ def parseString(message)
     	end
 
 		when "edytuj" then
-			return
+			getUser
+			return 
 
     when "zaproś" then
 			m = Mailer.instance
