@@ -57,7 +57,7 @@ def parseString(message)
 					if splitedmessage.size == 3
 						produkt = getProductById(splitedmessage[3].to_i)
 			     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-			        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id ='+ splitedmessage[1] +') (kategoria = '+produkt["category"] +' ) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
+			        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt (id ='+ splitedmessage[2].to_s +') (kategoria = ' + produkt["category"].to_s +' ) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
 			      })
 			   end
 				when "użytkownika" then
