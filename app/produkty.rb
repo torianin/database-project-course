@@ -35,15 +35,15 @@ end
 
 def printProducts
 	p = PostgresConnector.instance
+  @rows = []
+  @rows << ['Id','Kategoria','Efekt','Opis']
   value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
       value = value + "\n" + row['id_product'] + "\t" + category(row['category']) + "\t" + effect(row['effects']) + "\t" + row['discription']
     end
   end
-  rows = []
-  rows << ['Id','Kategoria','Efekt','Opis']
-	table = Terminal::Table.new :rows => rows
+	table = Terminal::Table.new :rows => @rows
   table.to_s
 end
 
