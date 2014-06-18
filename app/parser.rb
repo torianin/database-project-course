@@ -39,7 +39,8 @@ def parseString(message)
 
 		when "finalizuj" then
 			if session[:shoppingcart] == []
-      return "Masz pusty koszyk."
+      	return "Masz pusty koszyk."
+    	end
 
 		when "edytuj" then
 			return
