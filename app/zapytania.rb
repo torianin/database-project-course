@@ -2,13 +2,14 @@ require './app/model'
 
 	def printQueries
 	p = PostgresConnector.instance
-	value = ""
+  @rows = []
   p.getConnector.exec( "SELECT * FROM query" ) do |result|
     result.each do |row|
-      value = value +"Zapytanie: " + row['query_text'] + " " + row['date'] + "\n"
+      @rows << [row['query_text'],row['date']]
     end
   end
-	value
+  table = Terminal::Table.new :headings => ['Zapytanie','Data'], :rows => @rows
+  table.to_s
 end
 
 def addQuery(query)
