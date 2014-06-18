@@ -6,6 +6,7 @@ Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com
 
 def parseString(message)
 	splitedmessage = message.split
+	splitedmessage.gsub(/\(.*\)/, "")
 	case splitedmessage[0]
 		when "pomoc" then
 			return $pomoc
@@ -31,15 +32,15 @@ def parseString(message)
 			when "produkt" then
 				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
 			when "użytkownika" then
-				if splitedmessage.size <= 2
+				if splitedmessage.size == 2
 		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-		        message: '#var term = $(\'#term\').terminal();term.insert(\'test\');'
+		        message: '#var term = $(\'#term\').terminal();term.insert(\'Dodaj użytkownika (mail) (login) (password) (rola)\');'
 		      })
 				else
 					addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
+					return $dodano
 				end
 			end
-      return $dodano
 
 		when "kup" then
 			session[:shoppingcart] << splitedmessage[1]
