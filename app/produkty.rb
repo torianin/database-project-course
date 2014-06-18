@@ -1,5 +1,6 @@
 require './app/model'
 require 'rubygems'
+require 'terminal-table'
 
 def category(category)
   categories = {
