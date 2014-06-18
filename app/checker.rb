@@ -15,13 +15,13 @@ class Dictionary
         checklist = query.delete('^ aąbcćdeęfghijklłmnńoóprsśtuwyzźżAĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ').split
 			 	if @dict.check(checklist[0]) == false
 	          checkvalue = false
-	          suggestions = @dict.suggest(word)
+	          suggestions = @dict.suggest(checklist[0])
 	          if (suggestions.size)
 	              @correction = suggestions.first
 	              return_messages = Array.new()
 	              return_messages[0] = "Chyba coś źle napisałeś, nie chodziło ci przypadkiem o słowo #{@correction}."
 	              return_messages[1] = "Wydaje mi się, że miałeś na myśli słowo #{@correction}."
-	              return_messages[2] = "A nie powinno być #{@correction} zamiast #{word}."
+	              return_messages[2] = "A nie powinno być #{@correction} zamiast #{checklist[0]}."
 	              return return_messages[Random.rand(3)]
 	          end
 	      end
