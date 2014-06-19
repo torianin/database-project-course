@@ -4,6 +4,7 @@ require './app/model'
 require './app/produkty'
 require './app/uzytkownicy'
 require './app/zapytania'
+require './app/platnosci'
 require './app/string'
 require './app/parser'
 

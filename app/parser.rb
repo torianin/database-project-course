@@ -26,12 +26,15 @@ def parseString(message)
 					return printUsers
 			when "zapytania" then
 					return printQueries
+			when "płatności" then
+					return printOrders
 			end
 
 		when "dodaj" then
 			case splitedmessage[1]
 			when "produkt" then
 				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
+				return $dodano
 			when "użytkownika" then
 				if splitedmessage.size == 2
 		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
