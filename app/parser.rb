@@ -87,7 +87,10 @@ def parseString(message)
 			case splitedmessage[1]
 				when "produkt" then
 					if splitedmessage.size == 3
-						return getProductById(splitedmessage[2].to_i).to_s
+						produkt = getProductById(splitedmessage[2].to_i)
+				     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+				        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj produkt'+produkt["category"]+ '(kategoria)'+produkt["effects"]+ ' (efekt)'+produkt["discription"]+ ' (opis)'+produkt["prise"]+ '  (cena)'+produkt["current_tax"]+ ' (podatek)\');'
+				      })
 					else
 						editProduct(splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6],splitedmessage[2])
 			   end
