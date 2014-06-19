@@ -104,7 +104,7 @@ def parseString(message)
 				addOrder(payment)
       	session[:shoppingcart] = []
       	session[:payment] = 0
-      	return "Należną płatność #{payment}BitCoin należy wpłacić na portfel 1KeBs4HBQzkdHC2ou3gpyGHqcL7aKzwTve."
+      	return "Należną płatność #{payment} BitCoin należy wpłacić na portfel 1KeBs4HBQzkdHC2ou3gpyGHqcL7aKzwTve."
     	end
 
 		when "edytuj" then

@@ -62,7 +62,7 @@ post '/login' do
   if params[:user] == user[:login] and params[:password] == user[:password]
   	session[:login] = user[:login]
   	session[:role] = user[:role]
-  	return "callback('OK');term.echo(\"Witaj #{user[:login]}\");"
+  	return "callback('OK');term.echo(\"Witaj #{user[:login]}\", aby uzyskać więcej informacji wpisz pomoc.);"
   else
   	return "callback()"
   end
