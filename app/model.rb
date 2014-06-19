@@ -109,6 +109,22 @@ class PostgresConnector
 			FROM products
 			WHERE prise > 10;
 
+		DROP function IF EXISTS update_prise() CASCADE;
+		CREATE FUNCTION update_prise() RETURNS TRIGGER AS 
+		$X$
+		BEGIN
+			NEW.prise_with_tax = NEW.prise + NEW.current_tax;
+			RETURN NEW;
+		END 
+		$X$
+		LANGUAGE 'plpgsql';
+
+		DROP TRIGGER IF EXISTS uzupelnienie_danych ON products;
+		CREATE TRIGGER uzupelnienie_danych
+		BEFORE UPDATE OR INSERT
+		    ON products
+		   FOR EACH ROW
+		   
 		insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \'#{ Digest::MD5.hexdigest('olamakota123')}\', 'a');
 		");
 	end
