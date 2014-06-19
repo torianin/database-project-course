@@ -123,7 +123,7 @@ DROP TRIGGER IF EXISTS uzupelnienie_danych ON products;
 CREATE TRIGGER uzupelnienie_danych
 BEFORE UPDATE OR INSERT
     ON products
-   FOR EACH ROW;
+   FOR EACH ROW
 
 insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \'#{ Digest::MD5.hexdigest('olamakota123')}\', 'a');
 ");
