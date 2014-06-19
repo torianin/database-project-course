@@ -49,7 +49,6 @@ end
 def getProductById(id)
   p = PostgresConnector.instance
   info = Hash.new
-  return "SELECT * FROM products WHERE id_product = #{id} " 
   p.getConnector.exec( "SELECT * FROM products WHERE id_product = #{id} " ) do |result|
     result.each do |row|
       info = { :category => row['category'], :effects => row['effects'], :discription => row['discription'], :prise => row['prise'] }
