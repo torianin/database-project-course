@@ -126,7 +126,7 @@ def parseString(message)
 
     when "zaproś" then
 			m = Mailer.instance
-			m.createMail(splitedmessage[1], 'Witamy w tajnej społeczności.', 'Aby dokończyć proces rejestracji')
+			m.createMail(splitedmessage[1], 'Witamy w tajnej społeczności narkomanów.', 'Aby dokończyć proces rejestracji wyślij zwrotnego maila zawierającego login i współrzędne miejsca dostarczenia przesyłki ( poprawny format danych -> 51.109406, 17.047482).')
 			return $zaproszono
 	end
 end
