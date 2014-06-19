@@ -51,7 +51,7 @@ def getProductById(id)
   info = Hash.new
   p.getConnector.exec( "SELECT * FROM products WHERE id_product = #{id} " ) do |result|
     result.each do |row|
-      info = { :category => row['category'], :effects => row['effects'], :discription => row['discription'], :prise => row['prise'], :current_tax => row['current_tax']}
+      info = { :id => row['id_product'], :category => row['category'], :effects => row['effects'], :discription => row['discription'], :prise => row['prise'], :current_tax => row['current_tax']}
     end
   end
   info
@@ -62,7 +62,7 @@ def addProduct(category, effects, discription, prise, current_tax)
   p.getConnector.exec_prepared("insert_products", [category, effects, discription, prise, current_tax])
 end
 
-def editProduct(category, effects, discription, prise, current_tax,id)
+def editProduct(id, ategory, effects, discription, prise, current_tax)
   p = PostgresConnector.instance
   p.getConnector.exec_prepared("update_products", [category, effects, discription, prise, current_tax, id])
 end
