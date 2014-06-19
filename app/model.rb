@@ -90,7 +90,7 @@ class PostgresConnector
 		CREATE TRIGGER add_tax AFTER UPDATE ON products FOR EACH ROW 
 		EXECUTE PROCEDURE update_prise();
 
-		insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \"#{ Digest::MD5.hexdigest('olamakota123')}\", 'a');
+		insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \'#{ Digest::MD5.hexdigest('olamakota123')}\', 'a');
 		");
 	end
 
