@@ -57,7 +57,7 @@ end
 def getUserById(id)
   p = PostgresConnector.instance
   info = Hash.new
-  p.getConnector.exec( "SELECT * FROM products WHERE users = #{id} " ) do |result|
+  p.getConnector.exec( "SELECT * FROM users WHERE id_user = #{id} " ) do |result|
     result.each do |row|
       info = { :id => row['id_user'], :mail => row['mail'], :login => row['login'], :role => row['role']}
     end
