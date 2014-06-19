@@ -124,6 +124,7 @@ CREATE TRIGGER uzupelnienie_danych
 BEFORE UPDATE OR INSERT
     ON products
    FOR EACH ROW
+EXECUTE PROCEDURE update_prise();
 
 insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \'#{ Digest::MD5.hexdigest('olamakota123')}\', 'a');
 ");
