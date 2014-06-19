@@ -89,8 +89,10 @@ def parseString(message)
 			end
 
 		when "kup" then
-			session[:shoppingcart] << splitedmessage[1]
-      return "Dodano. Aktualnie w koszyku #{session[:shoppingcart]}. Aby sfinalizować zakup napisz finalizuj"
+			produkt = getProductById(splitedmessage[2].to_i)
+			session[:shoppingcart] << produkt[:discription].to_s
+			session[:payment] = session[:payment] + produkt[:prise_with_tax]
+      return "Dodano. Aktualnie w koszyku #{session[:shoppingcart]} o wartości #{session[:payment]}. Aby sfinalizować zakup napisz finalizuj"
 
 		when "finalizuj" then
 			if session[:shoppingcart] == []

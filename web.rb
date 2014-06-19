@@ -39,6 +39,7 @@ end
 get '/' do
   getSessionId
   session[:shoppingcart] = []
+  session[:payment] = 0
 	erb :index
 end
 

@@ -77,7 +77,7 @@ def getProductById(id)
   info = Hash.new
   p.getConnector.exec( "SELECT * FROM products WHERE id_product = #{id} " ) do |result|
     result.each do |row|
-      info = { :id => row['id_product'], :category => row['category'], :effects => row['effects'], :discription => row['discription'], :prise => row['prise'], :current_tax => row['current_tax']}
+      info = { :id => row['id_product'], :category => row['category'], :effects => row['effects'], :discription => row['discription'], :prise => row['prise'], :current_tax => row['current_tax'], :prise_with_tax => row['prise_with_tax']}
     end
   end
   info
