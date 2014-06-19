@@ -27,7 +27,7 @@ def parseString(message)
 			case splitedmessage[1]
 			when "produkty" then
 					return printProducts
-			when "kierowcow" then
+			when "kierowców" then
 				return printDrivers
 			when "użytkowników" then
 				if isAdmin?
@@ -53,7 +53,9 @@ def parseString(message)
 			case splitedmessage[1]
 			when "produkt" then
 				if splitedmessage.size == 2
-
+		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+		        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj produkt (kategoria) (efekt) (opis) (cena) (podatek)\');'
+		      })
 				else
 					addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
 					return $dodano
