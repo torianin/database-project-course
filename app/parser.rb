@@ -15,8 +15,12 @@ def parseString(message)
 		when "wyloguj" then
 			return "#term.logout();term.clear();"
 
-		when "alert" then
-			return "#alert(\"Operacja niedozwolona !!\");"
+		when "reset" 
+			if isAdmin?
+				createModel
+			else
+				return "#alert(\"Operacja niedozwolona !!\");"
+			end
 
 		when "wyświetl" then 
 			case splitedmessage[1]

@@ -15,6 +15,38 @@ helpers do
   def getSessionId
       session[:session_id]
   end
+
+  def isAdmin?
+    if session[:role] == 'a'
+      return true
+    else
+      return false
+    end
+  end
+
+  def isClient?
+    if session[:role] == 'c'
+      return true
+    else
+      return false
+    end
+  end
+
+  def isDriver?
+    if session[:role] == 'd'
+      return true
+    else
+      return false
+    end
+  end
+
+  def isSeller?
+    if session[:role] == 's'
+      return true
+    else
+      return false
+    end
+  end
 end
 
 get '/' do
