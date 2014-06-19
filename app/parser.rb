@@ -91,9 +91,9 @@ def parseString(message)
 				     Pusher['test_channel'].trigger("#{session[:session_id]}", {
 				        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj produkt '+produkt[:id].to_s+'(id) ' + produkt[:category].to_s+ '(kategoria) '+produkt[:effects].to_s+ '(efekt) '+produkt[:discription].to_s+ '(opis) '+produkt[:prise].to_s+ '(cena) '+produkt[:current_tax].to_s+ '(podatek)\');'
 				      })
-      			return "Zaktualizowano produkt."
 					else
 						editProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6],splitedmessage[7])
+			      return "Zaktualizowano produkt."
 			   end
 				when "użytkownika" then
 					if splitedmessage.size == 3
@@ -101,9 +101,9 @@ def parseString(message)
 				     Pusher['test_channel'].trigger("#{session[:session_id]}", {
 				        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj użytkownika '+użytkownik[:id].to_s+'(id) ' + użytkownik[:mail].to_s+ '(mail) '+użytkownik[:login].to_s+ '(login) '+użytkownik[:role].to_s+ '(role)\');'
 				      })
-      			return "Zaktualizowano użytkownika."
 					else
 						editProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6],splitedmessage[7])
+			      return "Zaktualizowano użytkownika."
 			   end
 			end
 
