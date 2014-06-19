@@ -28,18 +28,34 @@ def parseString(message)
 			when "produkty" then
 					return printProducts
 			when "użytkowników" then
+				if isAdmin?
 					return printUsers
+				else
+					return "#alert(\"Operacja niedozwolona !!\");"
+				end
 			when "zapytania" then
+				if isAdmin?
 					return printQueries
+				else
+					return "#alert(\"Operacja niedozwolona !!\");"
+				end
 			when "płatności" then
+				if isAdmin?
 					return printOrders
+				else
+					return "#alert(\"Operacja niedozwolona !!\");"
+				end
 			end
 
 		when "dodaj" then
 			case splitedmessage[1]
 			when "produkt" then
-				addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
-				return $dodano
+				if splitedmessage.size == 2
+
+				else
+					addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
+					return $dodano
+				end
 			when "użytkownika" then
 				if splitedmessage.size == 2
 		     Pusher['test_channel'].trigger("#{session[:session_id]}", {

@@ -90,6 +90,24 @@ class PostgresConnector
 		CREATE TRIGGER add_tax AFTER UPDATE ON products FOR EACH ROW 
 		EXECUTE PROCEDURE update_prise();
 
+		DROP VIEW IF EXISTS Drivers;
+		CREATE VIEW Drivers AS
+			SELECT *
+			FROM users
+			WHERE role = 'd';
+
+		DROP VIEW IF EXISTS Cheap_products;
+		CREATE VIEW Cheap_products AS
+			SELECT *
+			FROM products
+			WHERE prise < 10;
+
+		DROP VIEW IF EXISTS Expensive_products;
+		CREATE VIEW Expensive_products AS
+			SELECT *
+			FROM products
+			WHERE prise > 10;
+	
 		insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \'#{ Digest::MD5.hexdigest('olamakota123')}\', 'a');
 		");
 	end
