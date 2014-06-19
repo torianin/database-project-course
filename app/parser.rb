@@ -102,7 +102,7 @@ def parseString(message)
 				        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj użytkownika '+użytkownik[:id].to_s+'(id) ' + użytkownik[:mail].to_s+ '(mail) '+użytkownik[:login].to_s+ '(login) (hasło) '+użytkownik[:role].to_s+ '(rola)\');'
 				      })
 					else
-						editUser(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5])
+						editUser(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
 			      return "Zaktualizowano użytkownika."
 			   end
 			end
