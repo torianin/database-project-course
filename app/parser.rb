@@ -89,7 +89,7 @@ def parseString(message)
 			end
 
 		when "kup" then
-			produkt = getProductById(splitedmessage[2].to_i)
+			produkt = getProductById(splitedmessage[1].to_i)
 			session[:shoppingcart] << produkt[:discription].to_s
 			session[:payment] = session[:payment] + produkt[:prise_with_tax]
       return "Dodano. Aktualnie w koszyku #{session[:shoppingcart]} o wartości #{session[:payment]}. Aby sfinalizować zakup napisz finalizuj"
