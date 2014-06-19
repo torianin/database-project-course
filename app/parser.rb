@@ -27,12 +27,12 @@ def parseString(message)
 			end
 
 		when "wyświetl" then 
-			
+			case splitedmessage[1]
 			when "produkty" then
 				case splitedmessage[2]
-					when "tanie"
+					when "tanie" then
 						return printCheapProducts
-					when "dobre"
+					when "dobre" then
 						return printExensiveProducts
 				end
 				return printProducts
