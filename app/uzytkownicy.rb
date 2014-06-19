@@ -1,5 +1,7 @@
 require './app/model'
 require 'pusher'
+require "digest/md5"
+
 Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com/apps/76635"
 
 def rola(rola)
@@ -26,7 +28,7 @@ end
 
 def addUser(mail, login, password, role)
   p = PostgresConnector.instance
-  p.getConnector.exec_prepared("insert_users", [mail, login, password, role])
+  p.getConnector.exec_prepared("insert_users", [mail, login, Digest::MD5.digest(password), role])
 end
 
 def getUserId(login)
