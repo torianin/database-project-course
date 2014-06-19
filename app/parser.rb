@@ -99,10 +99,10 @@ def parseString(message)
 					if splitedmessage.size == 3
 						użytkownik = getUserById(splitedmessage[2].to_i)
 				     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-				        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj użytkownika '+użytkownik[:id].to_s+'(id) ' + użytkownik[:mail].to_s+ '(mail) '+użytkownik[:login].to_s+ '(login) '+użytkownik[:role].to_s+ '(role)\');'
+				        message: '#var term = $(\'#term\').terminal();term.insert(\'edytuj użytkownika '+użytkownik[:id].to_s+'(id) ' + użytkownik[:mail].to_s+ '(mail) '+użytkownik[:login].to_s+ '(login) (hasło)'+użytkownik[:role].to_s+ '(rola)\');'
 				      })
 					else
-						editProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6],splitedmessage[7])
+						editUser(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5])
 			      return "Zaktualizowano użytkownika."
 			   end
 			end
