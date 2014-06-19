@@ -28,7 +28,7 @@ end
 
 def addUser(mail, login, password, role)
   p = PostgresConnector.instance
-  p.getConnector.exec_prepared("insert_users", [mail, login, Digest::MD5.digest(password), role])
+  p.getConnector.exec_prepared("insert_users", [mail, login, Digest::MD5.hexdigest(password), role])
 end
 
 def getUserId(login)
