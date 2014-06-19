@@ -12,7 +12,7 @@ require './app/model'
   table.to_s
 end
 
-def addQuery(query)
+def addOrder(value)
   p = PostgresConnector.instance
-  p.getConnector.exec_prepared("insert_query", [query])
+  p.getConnector.exec_prepared("insert_order", [value])
 end

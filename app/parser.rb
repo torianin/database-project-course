@@ -101,9 +101,10 @@ def parseString(message)
 				m = Mailer.instance
 				m.createMail('bazy@robert-i.com', 'Zamówienie użytkownika "#{session[:login]}".', '#{session[:shoppingcart]}')
 				payment = session[:payment]
+				addOrder(payment)
       	session[:shoppingcart] = []
       	session[:payment] = 0
-      	return "Należną płatność #{payment} należy wpłacić na portfel 1KeBs4HBQzkdHC2ou3gpyGHqcL7aKzwTve."
+      	return "Należną płatność #{payment}BitCoin należy wpłacić na portfel 1KeBs4HBQzkdHC2ou3gpyGHqcL7aKzwTve."
     	end
 
 		when "edytuj" then
