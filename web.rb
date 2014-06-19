@@ -55,7 +55,7 @@ get '/' do
 	erb :index
 end
 
-post '/ask' dowy
+post '/ask' do
   query = params[:query]
   query = query.downcase
   addQuery(query)
