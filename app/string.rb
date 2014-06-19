@@ -13,3 +13,6 @@ $kategorie =
 
 $zaproszono = 
 "Poprawnie wysłano maila"
+
+$zresetowano = 
+"Poprawnie zresetowano bazę"

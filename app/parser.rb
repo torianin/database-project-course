@@ -18,6 +18,7 @@ def parseString(message)
 		when "reset" 
 			if isAdmin?
 				createModel
+				return $zresetowano
 			else
 				return "#alert(\"Operacja niedozwolona !!\");"
 			end
