@@ -87,7 +87,7 @@ def parseString(message)
 			case splitedmessage[1]
 				when "produkt" then
 					if splitedmessage.size == 3
-						return getProductById(splitedmessage[2].to_i)
+						return getProductById(splitedmessage[2].to_i).to_s
 					else
 						editProduct(splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6],splitedmessage[2])
 			   end
