@@ -30,25 +30,13 @@ end
 socket.connect(true) # Connect asynchronously
 		
 def setColor(text)
-	return "[[i;white;black]#{text}]"
+	return "[[i;red;black]#{text}]"
 end
 		
 message = ''
 while message!="exit"
 	message = gets.chomp
-	if message[0] == "%"
-		Pusher['test_channel'].trigger("#{users.at(message.scan(/-\d+|\d+/).last.to_i)}", {
-		  message: '#$.post( "auto" );'
-		})
-	elsif message[0] == "^"
-		Pusher['test_channel'].trigger("#{users.at(message.scan(/-\d+|\d+/).last.to_i)}", {
-		  message: '#$.post( "manual" );'
-		})
-	elsif message[0] == "@"
-		Pusher['test_channel'].trigger("#{users.at(message.scan(/-\d+|\d+/).last.to_i)}", {
-		  message: '#alert("Hmmmm");'
-		})
-	elsif message.scan(/-\d+|\d+/).last.to_i == -1
+	if message.scan(/-\d+|\d+/).last.to_i == -1
 		users.each { |user|
 			Pusher['test_channel'].trigger("#{user}", {
 			  message: setColor(message.delete(message.scan(/-\d+|\d+/).last))
