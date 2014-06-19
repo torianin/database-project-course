@@ -39,7 +39,7 @@ def printProducts
   value = ""
   p.getConnector.exec( "SELECT * FROM products" ) do |result|
     result.each do |row|
-      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription'],row['prise']]
+      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription'],row['prise_with_tax']]
     end
   end
 	table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis','Cena'], :rows => @rows
