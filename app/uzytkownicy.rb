@@ -65,7 +65,7 @@ def getUserById(id)
   info
 end
 
-def editUser(mail_, login_, password_, role_ ,id_)
+def editUser(id_, mail_, login_, password_, role_)
   p = PostgresConnector.instance
   p.getConnector.exec_prepared("update_users", [mail_, login_, Digest::MD5.hexdigest(password_), role_,id_])
 end
