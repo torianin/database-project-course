@@ -27,6 +27,8 @@ def parseString(message)
 			case splitedmessage[1]
 			when "produkty" then
 					return printProducts
+			when "kierowcow" then
+				return printDrivers
 			when "użytkowników" then
 				if isAdmin?
 					return printUsers

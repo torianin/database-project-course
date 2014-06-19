@@ -26,6 +26,18 @@ def printUsers
   table.to_s
 end
 
+def printDrivers
+  p = PostgresConnector.instance
+  @rows = []
+  p.getConnector.exec( "SELECT * FROM Drivers" ) do |result|
+    result.each do |row|
+      @rows << [row['id_user'].to_s,row['mail'],row['login'],rola(row['role']),row['date']]
+    end
+  end
+  table = Terminal::Table.new :headings => ['Id','Mail','Login','Rola','Data dołączenia'], :rows => @rows
+  table.to_s
+end
+
 def addUser(mail, login, password, role)
   p = PostgresConnector.instance
   p.getConnector.exec_prepared("insert_users", [mail, login, Digest::MD5.hexdigest(password), role])
