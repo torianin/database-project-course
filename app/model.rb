@@ -15,6 +15,7 @@ class PostgresConnector
 	  	@conn.prepare("insert_users", "insert into users (mail, login, password, role) values ($1, $2, $3, $4)")
 			@conn.prepare("insert_query", "insert into query (query_text) values ($1)")
 			@conn.prepare("update_products", "update products set category = $1, effects = $2, discription = $3, prise = $4, current_tax = $5 where id_product = $6")
+			@conn.prepare("update_users", "update users set mail = $1, login = $2, password = $3, role = $4 where id_user = $5")
 	end
 
 	def getConnector

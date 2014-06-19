@@ -54,8 +54,18 @@ def getUserId(login)
 	info
 end
 
-def getUser()
-     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-        message: '#alert("Dziala");'
-      })
+def getUserById(id)
+  p = PostgresConnector.instance
+  info = Hash.new
+  p.getConnector.exec( "SELECT * FROM products WHERE users = #{id} " ) do |result|
+    result.each do |row|
+      info = { :id => row['id_user'], :mail => row['mail'], :login => row['login'], :role => row['role']}
+    end
+  end
+  info
+end
+
+def editUser(mail_, login_, password_, role_ ,id_)
+  p = PostgresConnector.instance
+  p.getConnector.exec_prepared("update_users", [mail_, login_, Digest::MD5.hexdigest(password_), role_,id_])
 end
