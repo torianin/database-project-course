@@ -7,6 +7,9 @@ require './app/zapytania'
 require './app/platnosci'
 require './app/string'
 require './app/parser'
+require 'pusher'
+
+Pusher.url = "http://0b6500a2c511ef6a91ba:81572065aa966eb9805d@api.pusherapp.com/apps/76635"
 
 set :sessions => true
 set :session_secret, 'super secret'
@@ -62,6 +65,7 @@ end
 post '/ask' do
   query = params[:query]
   query = query.downcase
+  Pusher['sended-message'].trigger('sended-message', {:message => "#{query}", :userid =>"#{getSessionId}"})
   addQuery(query)
   d = Dictionary.instance
   checkedValue = d.checkWords(query) 
