@@ -31,6 +31,7 @@ class PostgresConnector
 			password text NOT NULL,
 			role char(1) CHECK (role IN('c','s','a','d')) NOT NULL,
 			first_time boolean DEFAULT TRUE,
+			other_info text,
 			date timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 		);
 
@@ -107,7 +108,7 @@ class PostgresConnector
 			SELECT *
 			FROM products
 			WHERE prise > 10;
-	
+
 		insert into users (mail, login, password, role) values ('tori@robert-i.com', 'admin', \'#{ Digest::MD5.hexdigest('olamakota123')}\', 'a');
 		");
 	end
