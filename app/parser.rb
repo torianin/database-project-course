@@ -9,6 +9,9 @@ def parseString(message)
 	message = message.gsub(/\(.*?\)/, '')
 	splitedmessage = message.split
 	case splitedmessage[0]
+		when "kluski" then
+			return "#setTimeout(function() { alert(\"Kluski gotowe\"); }, 600000);alert(\"Przypomne Ci za 10 min\");"
+
 		when "pomoc" then
 			return $pomoc
 
