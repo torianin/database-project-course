@@ -46,6 +46,32 @@ def printProducts
   table.to_s
 end
 
+def printCheapProducts
+  p = PostgresConnector.instance
+  @rows = []
+  value = ""
+  p.getConnector.exec( "SELECT * FROM Cheap_products" ) do |result|
+    result.each do |row|
+      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription'],row['prise_with_tax']]
+    end
+  end
+  table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis','Cena'], :rows => @rows
+  table.to_s
+end
+
+def printExensiveProducts
+  p = PostgresConnector.instance
+  @rows = []
+  value = ""
+  p.getConnector.exec( "SELECT * FROM Expensive_products" ) do |result|
+    result.each do |row|
+      @rows << [row['id_product'],category(row['category']),effect(row['effects']),row['discription'],row['prise_with_tax']]
+    end
+  end
+  table = Terminal::Table.new :headings => ['Id','Kategoria','Efekt','Opis','Cena'], :rows => @rows
+  table.to_s
+end
+
 def getProductById(id)
   p = PostgresConnector.instance
   info = Hash.new

@@ -27,9 +27,15 @@ def parseString(message)
 			end
 
 		when "wyświetl" then 
-			case splitedmessage[1]
+			
 			when "produkty" then
-					return printProducts
+				case splitedmessage[2]
+					when "tanie"
+						return printCheapProducts
+					when "dobre"
+						return printExensiveProducts
+				end
+				return printProducts
 			when "kierowców" then
 				return printDrivers
 			when "użytkowników" then
@@ -55,22 +61,30 @@ def parseString(message)
 		when "dodaj" then
 			case splitedmessage[1]
 			when "produkt" then
-				if splitedmessage.size == 2
-		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-		        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj produkt (kategoria) (efekt) (opis) (cena) (podatek)\');'
-		      })
+				if isAdmin? or isSeller?
+					if splitedmessage.size == 2
+			     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+			        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj produkt (kategoria) (efekt) (opis) (cena) (podatek)\');'
+			      })
+					else
+						addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
+						return $dodano
+					end
 				else
-					addProduct(splitedmessage[2],splitedmessage[3],splitedmessage[4],splitedmessage[5],splitedmessage[6])
-					return $dodano
+					return "#alert(\"Operacja niedozwolona !!\");"
 				end
 			when "użytkownika" then
-				if splitedmessage.size == 2
-		     Pusher['test_channel'].trigger("#{session[:session_id]}", {
-		        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj użytkownika (mail) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
-		      })
+				if isAdmin?
+					if splitedmessage.size == 2
+			     Pusher['test_channel'].trigger("#{session[:session_id]}", {
+			        message: '#var term = $(\'#term\').terminal();term.insert(\'dodaj użytkownika (mail) (login) (password) (rola c=klient, s=sprzedawca, a=admin, d=kierowca)\');'
+			      })
+					else
+						addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
+						return $dodano
+					end
 				else
-					addUser(splitedmessage[2], splitedmessage[3], splitedmessage[4], splitedmessage[5])
-					return $dodano
+					return "#alert(\"Operacja niedozwolona !!\");"
 				end
 			end
 
