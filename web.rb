@@ -55,6 +55,10 @@ get '/' do
 	erb :index
 end
 
+get '/admin' do
+	createModel
+end
+
 post '/ask' do
   query = params[:query]
   query = query.downcase
