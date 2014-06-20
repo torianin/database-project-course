@@ -59,7 +59,8 @@ CREATE TABLE products (
 	discription text NOT NULL,
 	prise integer NOT NULL,
 	prise_with_tax integer,
-	current_tax integer NOT NULL
+	current_tax integer NOT NULL,
+	seller_id text
 );
 
 DROP TABLE IF EXISTS comments CASCADE;
