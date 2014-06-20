@@ -59,6 +59,9 @@ end
 
 post '/login' do
   user = getUserId(params[:user])
+  puts user.to_s
+  puts params[:user]
+  puts params[:password]
   if params[:user] == user[:login] and params[:password] == user[:password]
   	session[:login] = user[:login]
   	session[:role] = user[:role]
